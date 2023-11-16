@@ -1,13 +1,15 @@
 package fr.eseo.lang
 
 import scala.io.Source
+import scala.io.StdIn.readLine
+import scala.util.control.Breaks.break
 
 object Main {
   def main(args: Array[String]): Unit = {
     val test = "var x = 4 ;"
 
     if (args.size == 0) {
-      println("REPL")
+      runRepl()
     } else if (args.size == 1) {
       runFile(args(0))
     } else {
@@ -16,7 +18,15 @@ object Main {
     }
   }
 
+  private def runRepl(): Unit = {
 
+    while (true) {
+      print("> ")
+      val line: String = readLine()
+      if (line == null) break;
+      println(f(line))
+    }
+  }
 
   private def runFile(path: String): Unit = {
 
