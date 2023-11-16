@@ -6,6 +6,7 @@ import scala.util.control.Breaks.break
 
 object Main {
   def main(args: Array[String]): Unit = {
+
     val test = "var x = 4 ;"
 
     if (args.size == 0) {
@@ -24,19 +25,19 @@ object Main {
       print("> ")
       val line: String = readLine()
       if (line == null) break;
-      println(f(line))
+      println(run(line))
     }
   }
 
   private def runFile(path: String): Unit = {
 
     val bufferedIterator = Source.fromFile(path)
-    bufferedIterator.getLines().foreach(line => println(f(line)))
+    bufferedIterator.getLines().foreach(line => println(run(line)))
     bufferedIterator.close()
   }
 
-  private def f(input: String): List[String] = {
-    input.split("\\s").toList
+  private def run(source: String): List[String] = {
+    source.split("\\s").toList
   }
 
 
