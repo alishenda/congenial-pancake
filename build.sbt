@@ -7,3 +7,7 @@ lazy val root = (project in file("."))
     name := "untitled",
     idePackagePrefix := Some("fr.eseo.lang")
   )
+
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "latest.integration" % Test
+)

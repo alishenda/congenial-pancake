@@ -10,11 +10,9 @@ object Main {
 
   def main(args: Array[String]): Unit = {
 
-    val test = "var x = 4 ;"
-
-    if (args.size == 0) {
+    if (args.length == 0) {
       runRepl()
-    } else if (args.size == 1) {
+    } else if (args.length == 1) {
       runFile(args(0))
     } else {
       println("Usage: jeseo [script]")
@@ -27,9 +25,9 @@ object Main {
     while (true) {
       print("> ")
       val line: String = readLine()
-      if (line == null) break;
+      if (line == null) break
       println(run(line))
-      hadError = false;
+      hadError = false
     }
   }
 
